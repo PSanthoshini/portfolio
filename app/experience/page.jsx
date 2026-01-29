@@ -58,7 +58,7 @@ export default function ExperiencePage() {
                     transition={{ duration: 0.5 }}
                     className="max-w-3xl mb-16"
                 >
-                    <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
                         Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Experience</span>
                     </h1>
                     <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">

@@ -13,13 +13,13 @@ export default function Hero() {
                 <div className="absolute bottom-[-10%] right-[-10%] w-[40rem] h-[40rem] bg-indigo-200/50 rounded-full blur-[100px] animate-pulse-slow delay-1000"></div>
             </div>
 
-            <div className="container-width relative z-10 flex flex-col items-center text-center">
+            <div className="container-width relative z-10 flex flex-col items-center text-center py-12 md:py-20">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-indigo-600 uppercase bg-indigo-50/80 rounded-full border border-indigo-100">
+                    <span className="inline-block px-4 py-1.5 mb-6 text-xs md:text-sm font-semibold tracking-wider text-indigo-600 uppercase bg-indigo-50/80 rounded-full border border-indigo-100">
                         Available for hire
                     </span>
                 </motion.div>
@@ -28,9 +28,9 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="max-w-5xl text-5xl font-black tracking-tight text-slate-900 md:text-7xl lg:text-8xl mb-8"
+                    className="max-w-5xl text-4xl sm:text-5xl font-black tracking-tight text-slate-900 md:text-7xl lg:text-8xl mb-8"
                 >
-                    Potnuru <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600 bg-300% animate-gradient">Santhoshini</span> <br className="hidden md:block" />
+                    Potnuru <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600 bg-300% animate-gradient">Santhoshini</span> <br />
                     Full Stack Software Engineer.
                 </motion.h1>
 
@@ -38,7 +38,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="max-w-2xl text-lg md:text-xl text-slate-600 mb-10 leading-relaxed"
+                    className="max-w-2xl text-base md:text-xl text-slate-600 mb-10 leading-relaxed px-4 md:px-0"
                 >
                     Driving end-to-end full-stack ownership with a focus on performance-focused development. I build scalable frontend and backend experiences that solve real-world value.
                 </motion.p>

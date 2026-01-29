@@ -16,7 +16,7 @@ export default function AboutPage() {
                     <div className="flex flex-col md:flex-row gap-12 items-start">
                         {/* Content */}
                         <div className="flex-1">
-                            <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-8">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-8">
                                 About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Me.</span>
                             </h1>
 

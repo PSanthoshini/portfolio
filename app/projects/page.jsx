@@ -72,7 +72,7 @@ export default function ProjectsPage() {
                     transition={{ duration: 0.5 }}
                     className="max-w-2xl mb-12"
                 >
-                    <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
                         Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Projects.</span>
                     </h1>
                     <p className="text-lg text-slate-600">
