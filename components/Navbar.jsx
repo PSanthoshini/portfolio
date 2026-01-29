@@ -34,7 +34,7 @@ export default function Navbar() {
     ];
 
     return (
-        <header className="sticky top-0 z-[100] w-full glass">
+        <header className="sticky top-0 z-[100] w-full bg-white md:glass">
             <div className="container-width flex h-16 md:h-20 items-center justify-between">
                 <Link href="/" className="text-xl md:text-2xl font-black tracking-tighter text-slate-900 group relative z-[101]">
                     San<span className="text-blue-600 group-hover:text-blue-700 transition-colors">thoshini.</span>
@@ -87,8 +87,8 @@ export default function Navbar() {
                                     <Link
                                         href={link.href}
                                         className={`text-4xl font-bold transition-all ${isActive(link.href)
-                                                ? "text-blue-600"
-                                                : "text-slate-400 hover:text-slate-900"
+                                            ? "text-blue-600"
+                                            : "text-slate-400 hover:text-slate-900"
                                             }`}
                                     >
                                         {link.label}
