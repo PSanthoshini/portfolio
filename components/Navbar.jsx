@@ -65,40 +65,52 @@ export default function Navbar() {
                 {/* Mobile Menu Overlay */}
                 <AnimatePresence>
                     {isOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, x: "100%" }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: "100%" }}
-                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                            className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center space-y-8 md:hidden px-6"
-                        >
-                            {/* Decorative Background */}
-                            <div className="absolute top-[-10%] left-[-10%] w-[20rem] h-[20rem] bg-blue-50 rounded-full blur-[80px] -z-10"></div>
-                            <div className="absolute bottom-[-10%] right-[-10%] w-[20rem] h-[20rem] bg-indigo-50 rounded-full blur-[80px] -z-10"></div>
+                        <>
+                            {/* Backdrop */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                onClick={() => setIsOpen(false)}
+                                className="fixed inset-0 z-[99] bg-slate-900/20 backdrop-blur-sm md:hidden"
+                            />
 
-                            {navLinks.map((link, index) => (
-                                <motion.div
-                                    key={link.href}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="w-full text-center"
-                                >
-                                    <Link
-                                        href={link.href}
-                                        className={`text-4xl font-bold transition-all ${isActive(link.href)
-                                            ? "text-blue-600"
-                                            : "text-slate-400 hover:text-slate-900"
-                                            }`}
+                            <motion.div
+                                initial={{ opacity: 0, x: "100%" }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: "100%" }}
+                                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                                className="fixed top-0 right-0 bottom-0 w-[75vw] z-[100] bg-white flex flex-col items-center justify-center space-y-8 md:hidden px-6 shadow-2xl"
+                            >
+                                {/* Decorative Background */}
+                                <div className="absolute top-[-10%] left-[-10%] w-[15rem] h-[15rem] bg-blue-50 rounded-full blur-[60px] -z-10"></div>
+                                <div className="absolute bottom-[-10%] right-[-10%] w-[15rem] h-[15rem] bg-indigo-50 rounded-full blur-[80px] -z-10"></div>
+
+                                {navLinks.map((link, index) => (
+                                    <motion.div
+                                        key={link.href}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                        className="w-full text-center"
                                     >
-                                        {link.label}
-                                    </Link>
-                                </motion.div>
-                            ))}
-                        </motion.div>
+                                        <Link
+                                            href={link.href}
+                                            className={`text-3xl font-bold transition-all ${isActive(link.href)
+                                                ? "text-blue-600"
+                                                : "text-slate-400 hover:text-slate-900"
+                                                }`}
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+                        </>
                     )}
                 </AnimatePresence>
             </div>
         </header>
     );
 }
+"
