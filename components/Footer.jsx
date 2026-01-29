@@ -29,12 +29,6 @@ export default function Footer() {
                         <span className="sr-only">LinkedIn</span>
                     </a>
                 </div>
-
-                <div className="flex items-center text-sm text-slate-500">
-                    <span className="flex items-center gap-1">
-                        Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> using Next.js
-                    </span>
-                </div>
             </div>
         </footer>
     );
