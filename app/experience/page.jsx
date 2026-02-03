@@ -36,13 +36,14 @@ const containerVariants = {
 };
 
 const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, scale: 0.95, y: 30 },
     visible: {
         opacity: 1,
+        scale: 1,
         y: 0,
         transition: {
             type: "spring",
-            stiffness: 50,
+            stiffness: 100,
             damping: 20
         }
     }
@@ -50,19 +51,19 @@ const itemVariants = {
 
 export default function ExperiencePage() {
     return (
-        <section className="min-h-screen py-20 bg-slate-50/50">
+        <section className="min-h-screen py-24 bg-slate-950 mesh-gradient">
             <div className="container-width">
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="max-w-3xl mb-16"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-3xl mb-20"
                 >
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
-                        Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Experience</span>
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tight mb-8">
+                        Career <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Journey.</span>
                     </h1>
-                    <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
-                        A timeline of my professional journey, building scalable software and solving complex problems with modern technologies.
+                    <p className="text-xl text-slate-400 leading-relaxed max-w-2xl">
+                        A chronological breakdown of my professional growth and the engineering challenges I've conquered.
                     </p>
                 </motion.div>
 
@@ -70,7 +71,7 @@ export default function ExperiencePage() {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="space-y-8 relative before:absolute before:inset-0 before:left-8 md:before:left-1/2 before:w-0.5 before:-ml-px before:h-full before:bg-slate-200 before:hidden md:before:block"
+                    className="space-y-12 relative before:absolute before:inset-0 before:left-8 md:before:left-1/2 before:w-[2px] before:-ml-px before:h-full before:bg-gradient-to-b before:from-blue-500/50 before:via-purple-500/50 before:to-pink-500/50 before:hidden md:before:block"
                 >
                     {experiences.map((exp, index) => (
                         <motion.div
@@ -80,45 +81,48 @@ export default function ExperiencePage() {
                                 }`}
                         >
                             {/* Timeline Dot */}
-                            <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-[3px] border-blue-600 z-10 hidden md:block group-hover:scale-125 transition-transform duration-300 shadow-[0_0_0_4px_rgba(37,99,235,0.1)]"></div>
+                            <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-slate-950 border-2 border-cyan-400 z-10 hidden md:block group-hover:scale-150 transition-transform duration-500 shadow-[0_0_20px_rgba(34,211,238,0.5)]"></div>
 
                             {/* Mobile Line Fix */}
-                            <div className="absolute left-8 top-0 bottom-0 w-px bg-slate-200 md:hidden"></div>
+                            <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-slate-800 md:hidden"></div>
 
                             {/* Spacer for alignment */}
                             <div className="hidden md:block w-1/2" />
 
                             {/* Content Card */}
-                            <div className={`w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 ${index % 2 === 0 ? "md:pl-12" : "md:pr-12"
+                            <div className={`w-full md:w-[calc(50%-4rem)] pl-20 md:pl-0 ${index % 2 === 0 ? "md:pl-16" : "md:pr-16"
                                 }`}>
-                                <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all duration-300 group-hover:border-blue-100">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                        <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                                <div className="glass-card p-8 md:p-10 rounded-3xl border border-white/10 hover:border-blue-500/50 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.1)]">
+                                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+                                        <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
                                             {exp.role}
                                         </h3>
-                                        <span className="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-700">
-                                            <Calendar className="w-3 h-3 mr-1.5" />
+                                        <span className="inline-flex items-center text-xs font-bold tracking-widest px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                                            <Calendar className="w-4 h-4 mr-2" />
                                             {exp.period}
                                         </span>
                                     </div>
 
-                                    <div className="flex items-center text-sm text-slate-500 font-medium mb-4">
-                                        <Briefcase className="w-4 h-4 mr-1.5 text-slate-400" />
-                                        {exp.company}
-                                        <span className="mx-2 text-slate-300">•</span>
-                                        <MapPin className="w-4 h-4 mr-1.5 text-slate-400" />
-                                        {exp.location}
+                                    <div className="flex flex-wrap items-center gap-6 text-sm text-slate-400 font-medium mb-8">
+                                        <div className="flex items-center gap-2">
+                                            <Briefcase className="w-5 h-5 text-blue-500" />
+                                            {exp.company}
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <MapPin className="w-5 h-5 text-indigo-500" />
+                                            {exp.location}
+                                        </div>
                                     </div>
 
-                                    <p className="text-slate-600 mb-6 leading-relaxed">
+                                    <p className="text-slate-400 mb-8 leading-relaxed text-lg">
                                         {exp.description}
                                     </p>
 
-                                    <div className="flex flex-wrap gap-2">
+                                    <div className="flex flex-wrap gap-3">
                                         {exp.skills.map(skill => (
                                             <span
                                                 key={skill}
-                                                className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-md group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors"
+                                                className="px-4 py-1.5 text-xs font-bold tracking-wider text-cyan-300 bg-cyan-900/20 rounded-lg border border-cyan-500/20 group-hover:bg-cyan-500/20 group-hover:text-white transition-all duration-300"
                                             >
                                                 {skill}
                                             </span>
@@ -133,11 +137,11 @@ export default function ExperiencePage() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="mt-20 text-center"
+                    className="mt-24 text-center"
                 >
-                    <a href="https://drive.google.com/file/d/1H6kVMbjs1lTKqWK284m4H7hEmmS4A4vV/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 active:scale-95">
-                        View Resume
-                        <ArrowUpRight className="ml-2 w-5 h-5" />
+                    <a href="https://drive.google.com/file/d/1H6kVMbjs1lTKqWK284m4H7hEmmS4A4vV/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-10 py-5 text-lg font-black text-white transition-all bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full hover:scale-110 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] active:scale-95">
+                        Download Résumé
+                        <ArrowUpRight className="ml-3 w-6 h-6" />
                     </a>
                 </motion.div>
             </div>

@@ -8,7 +8,40 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+
+    --vibrant-cyan: #00f7ff;
+    --vibrant-purple: #bc13fe;
+    --vibrant-pink: #ff0080;
+    --vibrant-indigo: #4f46e5;
   }
+
+  html,
+  body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
 }
 
 @layer components {
@@ -59,5 +92,21 @@
 
   .bg-300\% {
     background-size: 300% 300%;
+  }
+
+  .mesh-gradient {
+    background-color: #020617;
+    background-image:
+      radial-gradient(at 0% 0%, hsla(180, 100%, 50%, 0.15) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(280, 100%, 50%, 0.15) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(330, 100%, 50%, 0.15) 0, transparent 50%);
+  }
+
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
 }

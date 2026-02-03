@@ -6,6 +6,15 @@ import Link from "next/link";
 
 const projects = [
     {
+        id: 0,
+        title: "Botaniq Flora",
+        description: "A visually rich web app built with modern technologies to help users identify and explore plant species. Features intuitive UI, responsive design, and seamless performance.",
+        tags: ["React.js", "Next.js", "Tailwind CSS"],
+        github: "https://github.com/PSanthoshini", // Assuming the GitHub repo is present on their profile
+        demo: "https://botaniq-flora.vercel.app/",
+        featured: true
+    },
+    {
         id: 1,
         title: "JSMCC Website",
         description: "A production-ready responsive website with performance-optimized frontend.",
@@ -64,19 +73,19 @@ const itemVariants = {
 
 export default function ProjectsPage() {
     return (
-        <section className="min-h-screen py-20 bg-slate-50/50">
-            <div className="container-width">
+        <section className="min-h-screen py-24 bg-slate-950 mesh-gradient">
+            <div className="container-width relative">
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="max-w-2xl mb-12"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-2xl mb-16"
                 >
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
-                        Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Projects.</span>
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tight mb-8">
+                        My <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Creations.</span>
                     </h1>
-                    <p className="text-lg text-slate-600">
-                        A collection of projects exploring various technologies and solving real-world problems.
+                    <p className="text-xl text-slate-400 leading-relaxed">
+                        A showcase of engineering excellence, combining aesthetics with scalable code.
                     </p>
                 </motion.div>
 
@@ -84,43 +93,49 @@ export default function ProjectsPage() {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-10"
                 >
                     {projects.map((project) => (
                         <motion.div
                             key={project.id}
                             variants={itemVariants}
-                            className="bg-white rounded-2xl p-8 border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full"
+                            whileHover={{
+                                y: -10,
+                                rotateX: 2,
+                                rotateY: -2,
+                                transition: { duration: 0.2 }
+                            }}
+                            className="glass-card rounded-3xl p-10 border border-white/10 hover:border-cyan-500/50 transition-colors duration-500 group flex flex-col h-full perspective-1000"
                         >
-                            <div className="flex items-center justify-between mb-6">
-                                <div className="p-3 bg-blue-50 text-blue-600 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                                    <FolderGit2 className="w-6 h-6" />
+                            <div className="flex items-center justify-between mb-8">
+                                <div className="p-4 bg-cyan-500/10 text-cyan-400 rounded-2xl group-hover:bg-cyan-500 group-hover:text-white transition-all duration-500 shadow-lg shadow-cyan-500/20">
+                                    <FolderGit2 className="w-8 h-8" />
                                 </div>
-                                <div className="flex gap-3">
+                                <div className="flex gap-4">
                                     {project.github && (
-                                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors">
-                                            <Github className="w-5 h-5" />
+                                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
+                                            <Github className="w-6 h-6" />
                                         </a>
                                     )}
                                     {project.demo && (
-                                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors">
-                                            <ExternalLink className="w-5 h-5" />
+                                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-cyan-400 transition-colors">
+                                            <ExternalLink className="w-6 h-6" />
                                         </a>
                                     )}
                                 </div>
                             </div>
 
-                            <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
                                 {project.title}
                             </h3>
 
-                            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">
+                            <p className="text-slate-400 mb-8 flex-grow leading-[1.8] text-lg">
                                 {project.description}
                             </p>
 
-                            <div className="flex flex-wrap gap-2 mt-auto">
+                            <div className="flex flex-wrap gap-3 mt-auto">
                                 {project.tags.map(tag => (
-                                    <span key={tag} className="px-3 py-1 text-xs font-semibold text-slate-500 bg-slate-100 rounded-md">
+                                    <span key={tag} className="px-4 py-1.5 text-xs font-bold tracking-wider text-cyan-300 bg-cyan-950/40 rounded-full border border-cyan-500/30">
                                         {tag}
                                     </span>
                                 ))}
@@ -132,14 +147,15 @@ export default function ProjectsPage() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="mt-16 text-center"
+                    className="mt-24 text-center"
                 >
-                    <a href="https://github.com/PSanthoshini" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-all">
-                        <Github className="w-4 h-4" />
-                        View more on GitHub
+                    <a href="https://github.com/PSanthoshini" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-cyan-500/50 transition-all shadow-xl">
+                        <Github className="w-6 h-6" />
+                        Explore More on GitHub
                     </a>
                 </motion.div>
             </div>
         </section>
     );
 }
+
